@@ -1,1 +1,5 @@
-# tecweb-proj1-ptA
+# Projeto 1
+
+## Integrantes:
+
+### Ilana Finger e Ananda Campelo
