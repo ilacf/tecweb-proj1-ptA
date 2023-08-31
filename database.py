@@ -35,6 +35,7 @@ class Database():
     def update(self, entry):
         comando = f"UPDATE note SET title = '{entry.title}', content = '{entry.content}' WHERE id = {entry.id}"
         self.conn.execute(comando)
+        self.conn.commit()
 
     def delete(self, note_id):
         comando = f"DELETE FROM note WHERE id = {note_id}"
@@ -42,7 +43,6 @@ class Database():
         self.conn.commit()
 
     def get_one(self, id):
-        existentes = self.banco.get_all()
-        for nota in existentes:
-            if nota.id == id:
-                return nota
+        cursor = self.conn.execute(f"SELECT id, title, content FROM note WHERE id = {id}")
+        nota = [Note(linha[0], linha[1], linha[2]) for linha in cursor]
+        return nota[0]

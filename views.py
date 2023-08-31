@@ -37,11 +37,11 @@ def edit_note(request, id):
     nota = db.get_one(id)
     if request.startswith("POST"):
         request = request.replace('\r', '')
-        partes = request.split('\n\n')
-        corpo = partes[1]
-        titulo, detalhe = corpo.split("&")
+        partes = request.split('\n\n') 
+        titulo, detalhe = partes[1].split("&")
         titulo = unquote_plus(titulo.split("=")[1], encoding='utf-8', errors='replace')
         detalhe = unquote_plus(detalhe.split("=")[1], encoding='utf-8', errors='replace')
         nota = Note(id, titulo, detalhe)
         db.update(nota)
+        return build_response(code=303, reason='See Other', headers='Location: /')
     return build_response(body=load_template('edit.html').format(nota=nota))

@@ -29,15 +29,12 @@ while True:
     elif route.startswith('delete'):
         id = int(route.split('/')[-1])
         response = delete_note(id)
-    elif route.startswith('edit') and type(route.split('/')[-1]) == int():
+    elif route.startswith('edit'):
         id = route.split('/')[-1]
         response = edit_note(request, id)
     elif route == '':
         response = index(request)
     else:
-        print('*-'*100)
-        print(request)
-        print('*-'*100)
         response = build_response(code=404, body=load_template('404.html'))
 
     client_connection.sendall(response)
