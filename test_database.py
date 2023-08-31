@@ -5,7 +5,7 @@ from pathlib import Path
 import database
 
 
-DB_NAME = 'banco-teste'
+DB_NAME = 'notas'
 DB_FILENAME = f'{DB_NAME}.db'
 TABLE_NAME = 'note'
 
