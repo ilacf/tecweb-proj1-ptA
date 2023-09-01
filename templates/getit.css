@@ -282,8 +282,9 @@ body {
   justify-content: center;
   color: black;
   background-color: lightcoral;
-  width: 12rem;
+  width: 10rem;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .done-btn{
@@ -292,6 +293,7 @@ body {
   color: black;
   width: 12rem;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .back{
